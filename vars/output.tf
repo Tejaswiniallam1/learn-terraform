@@ -15,3 +15,8 @@ output "Value_in_map1" {
 }
 output "second_value_in_list1" {
   value = element(var.v2, 4)
+}
+
+output "fruitsdetails" {
+  value = "fruit name - Apple, quantity - ${var.fruits["apple"]["quantity"]}"
+ }
