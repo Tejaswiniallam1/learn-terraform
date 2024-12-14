@@ -6,3 +6,14 @@ resource "null_resource" "test" {
 output "test" {
   value = null_resource.test.*.id
 }
+
+resource "aws_instance" "test" {
+  count                  = 3
+  ami                    = "ami-0b4f379183e5706b9"
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = ["sg-0434fb24f059185a8"]
+
+  tags = {
+    Name = "test"
+  }
+}
